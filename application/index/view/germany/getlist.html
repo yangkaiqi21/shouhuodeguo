@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>资讯</title>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/css/layout.debug.css">
+</head>
+<body>
+<img class="page-bg" src="__PUBLIC__/images/info-bg.jpg" alt="">
+<div class="search-wrap">
+    <form action="" method="get">
+        <input type="text" name="keyWord" value="{:input('get.keyWord','')}" placeholder="关键词搜索" />
+        <img class="search-icon" src="__PUBLIC__/images/search-icon.png" alt="搜索图片">
+    </form>
+</div>
+<div class="browse">
+    <div class="browse-click">
+        <a href="javascript:">分类浏览</a>
+        <div class="bottom-arrow"></div>
+        <ul>
+            <li class="top-arrow"></li>
+            <li><a href="{:url('getList',array('country'=>$country))}">全部</a></li>
+            {volist name="cate" id="vo"}
+            <li><a href="{:url('getList',array('category'=>$vo['category'],'country'=>$country))}">{$vo['category']}</a></li>
+            {/volist}
+        </ul>
+    </div>
+    <div class="message-lists">
+        {volist name="list" id="vo"}
+        <a class="item item-bg" href="{:url('detail',array('id'=>$vo['id']))}">
+            <div class="message-item-content">
+                {if condition="$vo['type'] == 1 && $vo['country'] == '中国'"}
+                <div style="background-image: url('__PUBLIC__/images/china-flag.png')" class="flag f-l gong">供</div>
+                {/if}
+                {if condition="$vo['type'] == 1 && $vo['country'] == '德国'"}
+                <div style="background-image: url('__PUBLIC__/images/germany-flag.png')" class="flag f-l gong">供</div>
+                {/if}
+                {if condition="$vo['type'] == 2 && $vo['country'] == '中国'"}
+                <div style="background-image: url('__PUBLIC__/images/china-flag.png')" class="flag f-l qiu">求</div>
+                {/if}
+                {if condition="$vo['type'] == 2 && $vo['country'] == '德国'"}
+                <div style="background-image: url('__PUBLIC__/images/germany-flag.png')" class="flag f-l qiu">求</div>
+                {/if}
+                <p class="item-text f-r line-clamp"><span>[{$vo['category']}]</span>{$vo['title']}</p>
+            </div>
+        </a>
+        {/volist}
+    </div>
+</div>
+</body>
+</html>

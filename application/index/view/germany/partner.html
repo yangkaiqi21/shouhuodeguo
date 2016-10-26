@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <title>合作企业</title>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/css/layout.debug.css">
+</head>
+<body>
+<img class="page-bg" src="__PUBLIC__/images/companion-bg.jpg" alt="">
+<div class="companion">
+    {volist name="list" id="vo"}
+        <a class="companion-item item-bg" href="{:url('partnerDetail',array('id'=>$vo['id']))}">
+            <div class="companion-item-content">
+                <div style="background-image: url({$vo['path']})" class="companion-logo f-l"></div>
+                <div class="companion-info f-r">
+                    <h3 class="info-title line-clamp">
+                        {$vo['title']}
+                    </h3>
+                </div>
+            </div>
+        </a>
+    {/volist}
+</div>
+</body>
+</html>

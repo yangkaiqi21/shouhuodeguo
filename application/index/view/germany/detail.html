@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-rim-auto-match" content="none">
+    <title>{$data['title']}</title>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/css/layout.debug.css">
+</head>
+<body style="background-color: #F5F5F5;">
+<article>
+    <header class="article-title-wrap info-article-title-wrap">
+        <div style="display: none">
+            {if condition="$img['path'] != ''" }
+            <img src="{$img['path']}">
+            {/if}
+        </div>
+        <h1 class="article-title">{$data['title']}</h1>
+        <div class="title-more">
+            {if condition="$data['type'] == 1 && $data['country'] == '中国'"}
+            <div style="background-image: url('__PUBLIC__/images/china-flag.png');" class="flag f-l gong">供</div>
+            {/if}
+            {if condition="$data['type'] == 1 && $data['country'] == '德国'"}
+            <div style="background-image: url('__PUBLIC__/images/germany-flag.png');" class="flag f-l gong">供</div>
+            {/if}
+            {if condition="$data['type'] == 2 && $data['country'] == '中国'"}
+            <div style="background-image: url('__PUBLIC__/images/china-flag.png');" class="flag f-l qiu">求</div>
+            {/if}
+            {if condition="$data['type'] == 2 && $data['country'] == '德国'"}
+            <div style="background-image: url('__PUBLIC__/images/germany-flag.png');" class="flag f-l qiu">求</div>
+            {/if}
+
+
+                <span class="f-l">
+                    【 {$data['category']}】
+                </span>
+            <a style="color: #777" href="{:url('getList',array('writer'=>$data['writer']))}">
+                <div class="supplier f-r">
+                    {$data['writer']}
+                </div>
+            </a>
+        </div>
+    </header>
+    <section class="article-classify">
+        <h3 class="classify-title">内容介绍</h3>
+        <p>{$data['content']}</p>
+    </section>
+    <section class="article-classify">
+        <h3 class="classify-title">发布者介绍</h3>
+        <p>{$data['writer_information']}</p>
+    </section>
+    <section class="article-classify">
+        <h3 class="classify-title">联系方式</h3>
+        <div class="concat">
+            {$data['writer_contact']}
+        </div>
+    </section>
+    <section class="article-classify">
+        <h3 class="classify-title">提示</h3>
+        <div class="concat">
+            <p>1、本平台不负责审核信息发布者及其所发布信息的真实性，客户在沟通联系过程中应当自主分辨和核实信息发布者及其所发布信息，以免上当受骗。</p>
+            <p>2、本平台可根据客户的要求提供信息发布者及其发布信息真实性审核服务，同时还提供中德两国法律政策支持、翻译等服务，如需上述服务可与本平台联系。</p>
+            <p>3、德中两国之间的时差为7个小时， 德中双方客户在沟通联系过程中需注意两国时差。</p>
+        </div>
+    </section>
+</article>
+</body>
+</html>
